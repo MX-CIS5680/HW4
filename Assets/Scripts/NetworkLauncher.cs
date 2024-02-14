@@ -1,6 +1,7 @@
 namespace MyFirstARGame
 {
     using Photon.Pun;
+    using Photon.Realtime;
     using UnityEngine;
 
     /// <summary>
@@ -107,6 +108,11 @@ namespace MyFirstARGame
         {
             Debug.Log("Left room");
             this.isJoinedToRoom = false;
+        }
+
+        public override void OnPlayerEnteredRoom(Player newPlayer)
+        {
+            NetworkCommunication.UpdateForNewPlayer(newPlayer);
         }
     }
 }

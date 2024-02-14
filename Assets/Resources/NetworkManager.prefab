@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6068959599356134711}
   - component: {fileID: 5055995115842406564}
+  - component: {fileID: 4871763298997701247}
   - component: {fileID: 4608888377164664123}
   m_Layer: 0
   m_Name: NetworkManager
@@ -25,13 +26,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 766730935116285964}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5055995115842406564
 MonoBehaviour:
@@ -43,6 +44,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1bbcefb26b3a0bc49b0941fd6bca6e4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreboard: {fileID: 4871763298997701247}
+--- !u!114 &4871763298997701247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 766730935116285964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a24528f5bf3b324499bf738c05f9eeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &4608888377164664123
