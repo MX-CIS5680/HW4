@@ -44,7 +44,7 @@ namespace MyFirstARGame
 
         public override void OnRoomListUpdate(List<RoomInfo> roomList)
         {
-            //UpdateRoomListUI(roomList);
+            UpdateRoomListUI(roomList);
         }
 
         void UpdateRoomListUI(List<RoomInfo> roomList)
