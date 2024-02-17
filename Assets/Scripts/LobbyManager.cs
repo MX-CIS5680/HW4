@@ -81,7 +81,6 @@ namespace MyFirstARGame
         {
             string room_name = "TestRooms_" + PhotonNetwork.CountOfRooms;
             PhotonNetwork.CreateRoom(room_name, new RoomOptions());
-            PhotonNetwork.JoinRoom(room_name);
             SceneManager.LoadScene("Game", LoadSceneMode.Single);
         }
 
