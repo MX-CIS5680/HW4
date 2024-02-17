@@ -1,4 +1,5 @@
-﻿using UnityEngine.InputSystem;
+﻿using MyFirstARGame;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 namespace UnityEngine.XR.ARFoundation.Samples
@@ -28,7 +29,10 @@ namespace UnityEngine.XR.ARFoundation.Samples
         public void BackButtonPressed()
         {
             if (Application.CanStreamedLevelBeLoaded("Menu"))
+            {
+                GameObject.Find("NetworkLauncher").GetComponent<NetworkLauncher>().LeaveRoom();
                 SceneManager.LoadScene("Menu", LoadSceneMode.Single);
+            }
         }
     }
 }

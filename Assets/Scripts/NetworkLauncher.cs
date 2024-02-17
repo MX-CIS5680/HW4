@@ -114,5 +114,10 @@ namespace MyFirstARGame
         {
             NetworkCommunication.UpdateForNewPlayer(newPlayer);
         }
+
+        public void LeaveRoom()
+        {
+            PhotonNetwork.LeaveRoom();
+        }
     }
 }
