@@ -12,6 +12,7 @@
 [Ee]xported[Oo]bj/
 .vscode/
 .idea/
+*.csproj
 *.sln
 *.suo
 *.user
