@@ -19,12 +19,12 @@ namespace MyFirstARGame
         /// Event handler for when a room has been joined.
         /// </summary>
         /// <param name="sender">The network launcher</param>
-        public delegate void NetworkLauncherJoinedRoomEventHandler(NetworkLauncher sender);
+        //public delegate void NetworkLauncherJoinedRoomEventHandler(NetworkLauncher sender);
 
         /// <summary>
         /// Event that is raised when the client has joined a room.
         /// </summary>
-        public event NetworkLauncherJoinedRoomEventHandler JoinedRoom;
+        //public event NetworkLauncherJoinedRoomEventHandler JoinedRoom;
 
         private bool isJoinedToRoom;
 
@@ -40,7 +40,7 @@ namespace MyFirstARGame
 
         private void Awake()
         {
-            this.InitSingleton();
+            InitSingleton();
         }
 
         private void InitSingleton()
@@ -54,13 +54,22 @@ namespace MyFirstARGame
                 GameObject.Destroy(this.gameObject);
             }
 
-            GameObject.DontDestroyOnLoad(this.gameObject);
+            //GameObject.DontDestroyOnLoad(this.gameObject);
         }
 
         private void Start()
         {
-            // Try to connect to the master server.
-            PhotonNetwork.ConnectUsingSettings();
+            if(PhotonNetwork.InRoom)
+            {
+                Debug.Log("Joined Room!");
+                isJoinedToRoom = true;
+                NetworkCommunication = PhotonNetwork.Instantiate("NetworkManager", Vector3.zero, Quaternion.identity).GetComponent<NetworkCommunication>();
+                //JoinedRoom?.Invoke(this);
+            }
+            else
+            {
+                Debug.Log("Not in room!");
+            }
         }
 
         private void OnGUI()
@@ -102,7 +111,7 @@ namespace MyFirstARGame
                 this.NetworkCommunication = PhotonNetwork.Instantiate("NetworkManager", Vector3.zero, Quaternion.identity).GetComponent<NetworkCommunication>();
             }
 
-            this.JoinedRoom?.Invoke(this);
+            //this.JoinedRoom?.Invoke(this);
         }
 
         public override void OnLeftRoom()

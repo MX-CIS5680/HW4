@@ -1,12 +1,29 @@
+using MyFirstARGame;
 using UnityEngine.SceneManagement;
 
 namespace UnityEngine.XR.ARFoundation.Samples
 {
     public class SceneUtility : MonoBehaviour
     {
-        void Awake()
+        public static SceneUtility Singleton = null;
+
+        private void Awake()
         {
-            DontDestroyOnLoad(gameObject);
+            InitSingleton();
+        }
+
+        private void InitSingleton()
+        {
+            if (SceneUtility.Singleton == null)
+            {
+                SceneUtility.Singleton = this;
+            }
+            else
+            {
+                Destroy(this.gameObject);
+            }
+
+            GameObject.DontDestroyOnLoad(this.gameObject);
         }
 
         void OnEnable()

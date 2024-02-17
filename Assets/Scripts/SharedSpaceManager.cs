@@ -47,7 +47,7 @@ namespace MyFirstARGame
         private void Start()
         {
             this.trackedImages = new List<ARTrackedImage>();
-            NetworkLauncher.Singleton.JoinedRoom += this.NetworkLauncher_JoinedRoom;
+            //NetworkLauncher.Singleton.JoinedRoom += this.NetworkLauncher_JoinedRoom;
         }
 
         private void OnEnable()
