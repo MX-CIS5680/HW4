@@ -28,11 +28,7 @@ namespace UnityEngine.XR.ARFoundation.Samples
 
         public void BackButtonPressed()
         {
-            if (Application.CanStreamedLevelBeLoaded("Menu"))
-            {
-                GameObject.Find("NetworkLauncher").GetComponent<NetworkLauncher>().LeaveRoom();
-                SceneManager.LoadScene("Menu", LoadSceneMode.Single);
-            }
+            GameObject.Find("NetworkLauncher").GetComponent<NetworkLauncher>().LeaveRoom();
         }
     }
 }

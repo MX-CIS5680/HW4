@@ -27,14 +27,16 @@ namespace MyFirstARGame
         // Start is called before the first frame update
         void Start()
         {
-            // Try to connect to the master server.
-            PhotonNetwork.ConnectUsingSettings();
+            if (!PhotonNetwork.IsConnectedAndReady)
+            {
+                PhotonNetwork.ConnectUsingSettings();
+            }
         }
 
         // Update is called once per frame
         void Update()
         {
-        
+            //Debug.Log(PhotonNetwork.CountOfRooms);
         }
 
         public override void OnConnectedToMaster()
@@ -53,7 +55,10 @@ namespace MyFirstARGame
             Debug.Log("RoomListUpdate: " + roomList.Count + " rooms");
             foreach (RoomInfo room in roomList)
             {
-                AddRoomList(room.Name);
+                if (room.PlayerCount > 0)
+                {
+                    AddRoomList(room.Name);
+                }
             }
         }
 
@@ -80,10 +85,9 @@ namespace MyFirstARGame
         public void CreateRoom()
         {
             RoomOptions options = new RoomOptions();
-            options.EmptyRoomTtl = 30000;
+            options.EmptyRoomTtl = 100;
             string room_name = "TestRooms_" + PhotonNetwork.CountOfRooms;
             PhotonNetwork.CreateRoom(room_name, options);
-            SceneManager.LoadScene("Game", LoadSceneMode.Single);
         }
 
         public void JoinRoom()
@@ -93,6 +97,11 @@ namespace MyFirstARGame
                 PhotonNetwork.JoinRoom(selectedText.text);
                 SceneManager.LoadScene("Game", LoadSceneMode.Single);
             }
+        }
+
+        public override void OnJoinedRoom()
+        {
+            SceneManager.LoadScene("Game", LoadSceneMode.Single);
         }
     }
 }

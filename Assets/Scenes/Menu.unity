@@ -744,7 +744,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1544999136}
   m_HandleRect: {fileID: 1544999135}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -2169,7 +2169,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2104095886}
+      - m_Target: {fileID: 1583757663}
         m_TargetAssemblyTypeName: MyFirstARGame.LobbyManager, Assembly-CSharp
         m_MethodName: JoinRoom
         m_Mode: 1
@@ -2642,7 +2642,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.00002093279}
+  m_AnchoredPosition: {x: 0, y: -0.000048041344}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &1298145308
@@ -4074,6 +4074,54 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1544999134}
   m_CullTransparentMesh: 1
+--- !u!1 &1583757662
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1583757664}
+  - component: {fileID: 1583757663}
+  m_Layer: 0
+  m_Name: LobbyManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1583757663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1583757662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6236c3d565e72954da15f25ce19117a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scrollViewContent: {fileID: 1298145305}
+  itemPrefab: {fileID: 6222083552011982977, guid: ef181263ac539e047a6f1a516179e547,
+    type: 3}
+  selectedText: {fileID: 618838130}
+--- !u!4 &1583757664
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1583757662}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 780.6747, y: 555.4839, z: 1613.4644}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1688535290
 GameObject:
   m_ObjectHideFlags: 0
@@ -4445,20 +4493,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1065776154}
-        m_TargetAssemblyTypeName: UnityEngine.XR.ARFoundation.Samples.ARSceneSelectUI,
-          Assembly-CSharp
-        m_MethodName: LoadScene
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Game
-          m_BoolArgument: 0
-        m_CallState: 0
-      - m_Target: {fileID: 2104095886}
+      - m_Target: {fileID: 1583757663}
         m_TargetAssemblyTypeName: MyFirstARGame.LobbyManager, Assembly-CSharp
         m_MethodName: CreateRoom
         m_Mode: 1
@@ -4880,7 +4915,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2104095885}
   - component: {fileID: 2104095884}
-  - component: {fileID: 2104095886}
   m_Layer: 0
   m_Name: SceneManager
   m_TagString: Untagged
@@ -4915,22 +4949,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2104095886
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2104095883}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6236c3d565e72954da15f25ce19117a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scrollViewContent: {fileID: 1298145305}
-  itemPrefab: {fileID: 6222083552011982977, guid: ef181263ac539e047a6f1a516179e547,
-    type: 3}
-  selectedText: {fileID: 618838130}
 --- !u!1 &2135211028
 GameObject:
   m_ObjectHideFlags: 0
@@ -5101,6 +5119,7 @@ SceneRoots:
   - {fileID: 633152762}
   - {fileID: 346867440}
   - {fileID: 2104095885}
+  - {fileID: 1583757664}
   - {fileID: 106708203}
   - {fileID: 939418258}
   - {fileID: 1196527567}

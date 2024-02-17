@@ -3,6 +3,7 @@ namespace MyFirstARGame
     using Photon.Pun;
     using Photon.Realtime;
     using UnityEngine;
+    using UnityEngine.SceneManagement;
 
     /// <summary>
     /// Enables basic network functionality by connecting to the Photon server.
@@ -107,7 +108,7 @@ namespace MyFirstARGame
         public override void OnLeftRoom()
         {
             Debug.Log("Left room");
-            this.isJoinedToRoom = false;
+            SceneManager.LoadScene("Menu", LoadSceneMode.Single);
         }
 
         public override void OnPlayerEnteredRoom(Player newPlayer)
