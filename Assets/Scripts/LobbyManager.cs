@@ -42,13 +42,13 @@ namespace MyFirstARGame
 
         public override void OnRoomListUpdate(List<RoomInfo> roomList)
         {
-            Debug.Log("RoomListUpdate");
             UpdateRoomListUI(roomList);
         }
 
         void UpdateRoomListUI(List<RoomInfo> roomList)
         {
             ClearScrollView();
+            Debug.Log("RoomListUpdate: " + roomList.Count + " rooms");
             foreach (RoomInfo room in roomList)
             {
                 AddRoomList(room.Name);
