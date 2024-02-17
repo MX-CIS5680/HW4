@@ -86,7 +86,7 @@ namespace MyFirstARGame
             Debug.Log("Connected to master");
 
             // To keep it simple, we will join a random room.
-            PhotonNetwork.JoinRandomOrCreateRoom();
+            //PhotonNetwork.JoinRandomOrCreateRoom();
         }
 
         public override void OnJoinedRoom()

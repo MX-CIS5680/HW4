@@ -8,12 +8,14 @@ namespace MyFirstARGame
     using Photon.Pun;
     using Photon.Realtime;
     using UnityEngine;
+    using UnityEngine.SceneManagement;
     using UnityEngine.UIElements;
 
     public class LobbyManager : MonoBehaviourPunCallbacks
     {
         public GameObject scrollViewContent;
         public GameObject itemPrefab;
+        public Text selectedText;
 
         void Awake()
         {
@@ -42,7 +44,7 @@ namespace MyFirstARGame
 
         public override void OnRoomListUpdate(List<RoomInfo> roomList)
         {
-            UpdateRoomListUI(roomList);
+            //UpdateRoomListUI(roomList);
         }
 
         void UpdateRoomListUI(List<RoomInfo> roomList)
@@ -71,6 +73,7 @@ namespace MyFirstARGame
             GameObject newItem = Instantiate(itemPrefab, scrollViewContent.transform);
 
             // Set the text of the item
+            newItem.GetComponent<Selectable>().selectedText = selectedText;
             newItem.GetComponentInChildren<Text>().text = name;
         }
 
@@ -78,6 +81,17 @@ namespace MyFirstARGame
         {
             string room_name = "TestRooms_" + PhotonNetwork.CountOfRooms;
             PhotonNetwork.CreateRoom(room_name, new RoomOptions());
+            PhotonNetwork.JoinRoom(room_name);
+            SceneManager.LoadScene("Game", LoadSceneMode.Single);
+        }
+
+        public void JoinRoom()
+        {
+            if(selectedText != null && selectedText.text.Length > 0)
+            {
+                PhotonNetwork.JoinRoom(selectedText.text);
+                SceneManager.LoadScene("Game", LoadSceneMode.Single);
+            }
         }
     }
 }

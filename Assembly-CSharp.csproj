@@ -103,6 +103,7 @@
     <Compile Include="Assets\Scripts\Unity\UI\Requirements\RequiresImageTracking.cs" />
     <Compile Include="Assets\Scripts\Unity\UI\ARSceneSelectUI.cs" />
     <Compile Include="Assets\Scripts\Unity\UI\Requirements\RequiresPointClouds.cs" />
+    <Compile Include="Assets\Scripts\UI\Selectable.cs" />
     <Compile Include="Assets\Scripts\Unity\SceneUtility.cs" />
     <Compile Include="Assets\Scripts\Unity\UI\RectTransformExtensions.cs" />
     <Compile Include="Assets\Scripts\Unity\UI\Requirements\RequiresObjectTracking.cs" />
