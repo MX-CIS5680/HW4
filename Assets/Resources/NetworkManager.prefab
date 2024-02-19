@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5055995115842406564}
   - component: {fileID: 4871763298997701247}
   - component: {fileID: 4608888377164664123}
+  - component: {fileID: 1005055702348751050}
   m_Layer: 0
   m_Name: NetworkManager
   m_TagString: Untagged
@@ -47,6 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreboard: {fileID: 4871763298997701247}
+  resources: {fileID: 1005055702348751050}
 --- !u!114 &4871763298997701247
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -81,3 +83,17 @@ MonoBehaviour:
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!114 &1005055702348751050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 766730935116285964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a86e42da159f7784dab83d0a952b72a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: 0
+  bullet: 10
