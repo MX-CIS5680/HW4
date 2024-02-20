@@ -11,16 +11,22 @@ namespace MyFirstARGame
         public GameObject collectorToControl;
         public GameObject collectorPrefab;
         public float speed = 5;
+
         // Start is called before the first frame update
         void Start()
         {
-        
+            
         }
         private void FixedUpdate() {
             float movement = speed * Time.deltaTime;
-            if(controlPanel!=null && collectorToControl!=null){
-                collectorToControl.transform.Translate(new Vector3(controlPanel.Horizontal * movement,0,controlPanel.Vertical * movement));
-            }else{
+
+            if (controlPanel!=null && collectorToControl!=null){
+                
+                Vector3 move = transform.localToWorldMatrix * new Vector3(controlPanel.Horizontal * movement, 0, controlPanel.Vertical * movement);
+                move.y = 0;
+                collectorToControl.transform.Translate(move);
+            }
+            else{
                 Debug.Log("No panel");
             }
         }
