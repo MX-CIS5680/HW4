@@ -2,6 +2,7 @@ namespace MyFirstARGame
 {
     using UnityEngine;
     using Photon.Pun;
+    using System.Threading;
 
     /// <summary>
     /// Controls projectile behaviour. In our case it currently only changes the material of the projectile based on the player that owns it.
@@ -19,6 +20,8 @@ namespace MyFirstARGame
         private float wanderDistance = 10;
         [SerializeField]
         private float wanderJitter = 1;
+
+        public float timeToFlee = 10;
 
         public bool active = true;
         NetworkCommunication networkCommunication = null;
@@ -78,11 +81,6 @@ namespace MyFirstARGame
 
         private void OnCollisionEnter(Collision other) 
         {
-            // Bullet bullet = other.gameObject.GetComponent<Bullet>();
-            // if(bullet != null)
-            // {
-            //     bullet.photonView.RPC("TryDestroy", RpcTarget.All);
-            // }
 
             if(photonView.IsMine)
             {
@@ -95,13 +93,13 @@ namespace MyFirstARGame
                 {
                     Debug.Log("Can't find networkCommunication");
                 }
-                if (!active && other.gameObject.CompareTag("Player"))
+                if (!active && other.gameObject.CompareTag("Collector"))
                 {
                     SetBulletCount(GetBulletCount() + 2);
                     SetScore(GetScore() + 5);
                     PhotonNetwork.Destroy(gameObject);
                 }
-                else if (active && other.gameObject.CompareTag("Player"))
+                else if (active && other.gameObject.CompareTag("Bullet"))
                 {
                     BecomeScrap();
                     SetScore(GetScore() + 10);
@@ -116,6 +114,19 @@ namespace MyFirstARGame
         private void Update() {
             if (photonView.IsMine)
             {
+                timeToFlee -= Time.deltaTime;
+                if(timeToFlee < 0){
+                    if (networkCommunication == null)
+                    {
+                        networkCommunication = FindObjectOfType<NetworkCommunication>();
+                    }
+                    if (networkCommunication == null)
+                    {
+                        Debug.Log("Can't find networkCommunication");
+                    }
+                    networkCommunication.SetEnemyFled(networkCommunication.GetEnemyFled() + 1);
+                    PhotonNetwork.Destroy(gameObject);
+                }
                 if (active)
                 {
                    Wander();

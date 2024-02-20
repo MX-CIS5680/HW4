@@ -42,7 +42,6 @@ namespace MyFirstARGame
         }
 
         public void SetBullet(int amt){
-            if(!PhotonNetwork.IsMasterClient)return;
             photonView.RPC("Network_SetBullet", RpcTarget.All, amt);
         }
         public int GetBullet(){
@@ -56,7 +55,6 @@ namespace MyFirstARGame
         }
  
         public void SetScore(int amt){
-            if(!PhotonNetwork.IsMasterClient)return;
             photonView.RPC("Network_SetScore", RpcTarget.All, amt);
         }
         public int GetScore(){
@@ -69,8 +67,7 @@ namespace MyFirstARGame
         }
 
         public void SetEnemyFled(int amt){
-            if(!PhotonNetwork.IsMasterClient)return;
-
+            photonView.RPC("Network_SetEnemyFled", RpcTarget.All, amt);
         }
         public int GetEnemyFled(){
             return resources.enemyFled;
