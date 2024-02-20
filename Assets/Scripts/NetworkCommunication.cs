@@ -75,7 +75,10 @@ namespace MyFirstARGame
         [PunRPC]
         public void Network_SetEnemyFled(int amt){
             Debug.Log("Set Enemey Fled: " + amt);
-            resources.enemyFled = amt;
+            resources.SetEnemyFled(amt);
+            if(resources.gameOver){
+                PhotonNetwork.LeaveRoom();
+            }
         }
 
 

@@ -12,19 +12,31 @@ namespace MyFirstARGame
         public int bullet;
 
         public int enemyFled;
+
+        public bool gameOver = false;
         public void setBullet(int amt){
             bullet = amt;
+        }
+        public void SetEnemyFled(int amt){
+            enemyFled = amt;
+            if(enemyFled > 3){
+                gameOver = true;
+            }
         }
         private void OnGUI()
         {
             GUILayout.BeginArea(new Rect(0, 0, Screen.width, Screen.height));
             GUILayout.BeginVertical();
             GUILayout.FlexibleSpace();
-
-            GUILayout.Label("Score:" + score, new GUIStyle { normal = new GUIStyleState { textColor = Color.black }, fontSize = 22 });
-            GUILayout.Label("Bullet:" + bullet, new GUIStyle { normal = new GUIStyleState { textColor = Color.black }, fontSize = 22 });
-            GUILayout.Label("Fled Enemy:" + enemyFled, new GUIStyle { normal = new GUIStyleState { textColor = Color.black }, fontSize = 22 });
-
+            if(gameOver){   
+                GUILayout.Label("GameOver", new GUIStyle { normal = new GUIStyleState { textColor = Color.red }, fontSize = 22 });
+                GUILayout.Label("Score:" + score, new GUIStyle { normal = new GUIStyleState { textColor = Color.black }, fontSize = 22 });
+            }else{
+                GUILayout.Label("Score:" + score, new GUIStyle { normal = new GUIStyleState { textColor = Color.black }, fontSize = 22 });
+                GUILayout.Label("Bullet:" + bullet, new GUIStyle { normal = new GUIStyleState { textColor = Color.black }, fontSize = 22 });
+                GUILayout.Label("Fled Enemy:" + enemyFled, new GUIStyle { normal = new GUIStyleState { textColor = Color.black }, fontSize = 22 });
+            }
+            
             GUILayout.FlexibleSpace();
             GUILayout.EndVertical();
             GUILayout.EndArea();
