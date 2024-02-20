@@ -118,7 +118,7 @@ namespace MyFirstARGame
         {
             RoomOptions options = new RoomOptions();
             options.EmptyRoomTtl = 100;
-            string room_name = "TestRooms_" + PhotonNetwork.CountOfRooms;
+            string room_name = "rooms_" + PhotonNetwork.LocalPlayer.UserId;
 
             PhotonNetwork.CreateRoom(room_name, options);
         }
