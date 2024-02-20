@@ -6,7 +6,7 @@ namespace MyFirstARGame
     /// <summary>
     /// Controls projectile behaviour. In our case it currently only changes the material of the projectile based on the player that owns it.
     /// </summary>
-    public class Bullet : MonoBehaviourPun
+    public class Bullet : MonoBehaviourPunCallbacks
     {
         [SerializeField]
         private Material[] projectileMaterials;
@@ -15,8 +15,6 @@ namespace MyFirstARGame
 
         private void Awake()
         {
-            PlayerCount = PhotonNetwork.CurrentRoom.PlayerCount;
-
             // Pick a material based on our player number so that we can distinguish between projectiles. We use the player number
             // but wrap around if we have more players than materials. This number was passed to us when the projectile was instantiated.
             // See ProjectileLauncher.cs for more details.
@@ -49,6 +47,16 @@ namespace MyFirstARGame
                 //Destroy(gameObject);
                 //photonView.RPC("DestroyMyself", RpcTarget.MasterClient);
             }
+        }
+
+        public override void OnPlayerEnteredRoom(Player newPlayer)
+        {
+            ++PlayerCount;
+        }
+
+        public override void OnPlayerLeftRoom(Player otherPlayer)
+        {
+            --PlayerCount;
         }
     }
 }
