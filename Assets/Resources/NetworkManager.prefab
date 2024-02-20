@@ -98,3 +98,4 @@ MonoBehaviour:
   score: 0
   bullet: 10
   enemyFled: 0
+  gameOver: 0

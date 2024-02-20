@@ -35,7 +35,7 @@ namespace MyFirstARGame
             Debug.Log("You're not collector");
             if(controlPanel!=null)controlPanel.gameObject.SetActive(false);
             if(collectorToControl!=null){
-                Destroy(collectorToControl);
+                PhotonNetwork.Destroy(collectorToControl);
                 collectorToControl = null;
             }
         }
@@ -44,11 +44,7 @@ namespace MyFirstARGame
             Debug.Log("You're collector");
             if(controlPanel!=null)controlPanel.gameObject.SetActive(true);
             if(collectorToControl!=null)Destroy(collectorToControl);
-            collectorToControl = PhotonNetwork.Instantiate(this.collectorPrefab.name, Vector3.zero, Quaternion.identity);
-        }
-        // Update is called once per frame
-        void Update()
-        {
+            collectorToControl = PhotonNetwork.Instantiate(this.collectorPrefab.name, new Vector3(0, 1, 0), Quaternion.identity);
         }
     }
 }
