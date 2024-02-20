@@ -78,7 +78,7 @@ namespace MyFirstARGame
                     currentRooms.Remove(room.Name);
                     continue;
                 }
-                if(room.IsOpen)
+                if(room.IsOpen && !currentRooms.ContainsKey(room.Name))
                 {
                     if (room.PlayerCount > 0)
                     {
