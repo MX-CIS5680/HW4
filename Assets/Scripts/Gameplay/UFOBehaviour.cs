@@ -6,7 +6,7 @@ namespace MyFirstARGame
     /// <summary>
     /// Controls projectile behaviour. In our case it currently only changes the material of the projectile based on the player that owns it.
     /// </summary>
-    public class UFOBehaviour : MonoBehaviour
+    public class UFOBehaviour : MonoBehaviourPun
     {
 
         public Vector3 wanderTarget = Vector3.zero;
@@ -68,6 +68,7 @@ namespace MyFirstARGame
             networkCommunication.SetScore(amt);
         }
 
+        [PunRPC]
         private void BecomeScrap(){
             Debug.Log("Become Scrap");
             active = false;
@@ -75,9 +76,10 @@ namespace MyFirstARGame
             rigidbody.useGravity = true;
             
         }
+
         private void OnCollisionEnter(Collision other) {
             if(networkCommunication == null){
-            networkCommunication = FindObjectOfType<NetworkCommunication>();
+                networkCommunication = FindObjectOfType<NetworkCommunication>();
             }
             if(networkCommunication == null){
                 Debug.Log("Can't find networkCommunication");
@@ -85,9 +87,9 @@ namespace MyFirstARGame
             if(!active && other.gameObject.CompareTag("Player")){
                 SetBulletCount(GetBulletCount() + 2);
                 SetScore(GetScore() + 5);
-                Destroy(gameObject);
+                PhotonNetwork.Destroy(gameObject);
             }else if(active){
-                BecomeScrap();
+                photonView.RPC("BecomeScrap", RpcTarget.All);
                 SetScore(GetScore() + 10);
             }
         }

@@ -1,13 +1,56 @@
 {
-    "m_SelectedDeviceId": "",
+    "m_SelectedDeviceId": "R5CN20R8L7H",
     "m_SelectedPackage": {
-        "deviceId": "",
-        "name": "",
-        "processId": 0,
+        "deviceId": "R5CN20R8L7H",
+        "name": "com.unity.penn.argame",
+        "processId": 22316,
         "exited": false
     },
     "m_SelectedPriority": 0,
-    "m_KnownPackagesForSerialization": [],
+    "m_KnownPackagesForSerialization": [
+        {
+            "deviceId": "R5CN20R8L7H",
+            "name": "com.unity.penn.argame",
+            "processId": 5131,
+            "exited": false
+        },
+        {
+            "deviceId": "R5CN20R8L7H",
+            "name": "com.unity.penn.argame",
+            "processId": 11342,
+            "exited": false
+        },
+        {
+            "deviceId": "R5CN20R8L7H",
+            "name": "com.unity.penn.argame",
+            "processId": 14399,
+            "exited": false
+        },
+        {
+            "deviceId": "R5CN20R8L7H",
+            "name": "com.unity.penn.argame",
+            "processId": 17251,
+            "exited": false
+        },
+        {
+            "deviceId": "R5CN20R8L7H",
+            "name": "com.unity.penn.argame",
+            "processId": 18384,
+            "exited": false
+        },
+        {
+            "deviceId": "R5CN20R8L7H",
+            "name": "com.unity.penn.argame",
+            "processId": 20756,
+            "exited": false
+        },
+        {
+            "deviceId": "R5CN20R8L7H",
+            "name": "com.unity.penn.argame",
+            "processId": 22316,
+            "exited": false
+        }
+    ],
     "m_Tags": {
         "m_Entries": [
             {
@@ -41,9 +84,20 @@
         ]
     },
     "m_MemoryViewerState": {
-        "MemoryWindowHeight": 0.0,
-        "MemoryWindowWidth": 0.0,
-        "MemoryTypeEnabled": [],
+        "MemoryWindowHeight": 300.0,
+        "MemoryWindowWidth": 170.0,
+        "MemoryTypeEnabled": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+        ],
         "MemoryGroup": 2,
         "Behavior": 0
     },

@@ -9,10 +9,14 @@ namespace MyFirstARGame
 
         private Dictionary<string, int> scores;
 
+        void Awake()
+        {
+            scores = new Dictionary<string, int>();
+        }
+
         // Start is called before the first frame update
         void Start()
         {
-            scores = new Dictionary<string, int>(); 
         }
 
         public void SetScore(string playerName, int score)

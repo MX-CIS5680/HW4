@@ -95,7 +95,6 @@ namespace MyFirstARGame
             if(selectedText != null && selectedText.text.Length > 0)
             {
                 PhotonNetwork.JoinRoom(selectedText.text);
-                SceneManager.LoadScene("Game", LoadSceneMode.Single);
             }
         }
 

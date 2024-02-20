@@ -2,11 +2,11 @@ namespace MyFirstARGame
 {
     using UnityEngine;
     using Photon.Pun;
-
+    using Photon.Realtime;
     /// <summary>
     /// Controls projectile behaviour. In our case it currently only changes the material of the projectile based on the player that owns it.
     /// </summary>
-    public class Bullet : MonoBehaviour
+    public class Bullet : MonoBehaviourPun
     {
         [SerializeField]
         private Material[] projectileMaterials;
@@ -27,8 +27,11 @@ namespace MyFirstARGame
 
         private void OnCollisionEnter(Collision other) {
             Debug.Log(other.gameObject.name);
-            Destroy(gameObject);
+            if(photonView.IsMine)
+            {
+                PhotonNetwork.Destroy(gameObject);
+                //photonView.RPC("DestroyMyself", RpcTarget.MasterClient);
+            }
         }
-
     }
 }

@@ -15,18 +15,20 @@ namespace MyFirstARGame
 
         void Start()
         {
+            if (PhotonNetwork.IsMasterClient)
+                PhotonNetwork.Instantiate(this.enemyPrefab.name, transform.position, Quaternion.identity);
         }
 
         // Update is called once per frame
         void Update()
         {
-            if(PhotonNetwork.IsMasterClient){
-                countDown -= Time.deltaTime;
-                if(countDown < 0){
-                    countDown = Random.Range(1, 1 + countDown);
-                    PhotonNetwork.Instantiate(this.enemyPrefab.name, transform.position, Quaternion.identity);
-                }
-            }
+            //if(PhotonNetwork.IsMasterClient){
+            //    countDown -= Time.deltaTime;
+            //    if(countDown < 0){
+            //        countDown = Random.Range(1, 1 + spawnInterval);
+            //        PhotonNetwork.Instantiate(this.enemyPrefab.name, transform.position, Quaternion.identity);
+            //    }
+            //}
         }
     }
 }

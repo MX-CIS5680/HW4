@@ -46,6 +46,8 @@ MonoBehaviour:
   - Network_SetBullet
   - Network_SetScore
   - Network_SetEnemyFled
+  - DestroyMyself
+  - BecomeScrap
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1
