@@ -81,7 +81,12 @@ namespace MyFirstARGame
             }
         }
 
+        [PunRPC]
         void QuitRoom(){
+            if (PhotonNetwork.IsMasterClient)
+            {
+                photonView.RPC("QuitRoom", RpcTarget.Others);
+            }
             PhotonNetwork.LeaveRoom();
         }
     }

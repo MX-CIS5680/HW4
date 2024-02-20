@@ -123,6 +123,7 @@ namespace MyFirstARGame
         {
         }
 
+        [PunRPC]
         public void LeaveRoom()
         {
             Debug.Log("Left room");
