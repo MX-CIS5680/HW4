@@ -29,7 +29,7 @@ namespace MyFirstARGame
             if(photonView.IsMine)
             {
                 Debug.Log(other.gameObject.name);
-                PhotonNetwork.Destroy(gameObject);
+                //PhotonNetwork.Destroy(gameObject);
                 //photonView.RPC("DestroyMyself", RpcTarget.MasterClient);
             }
         }
