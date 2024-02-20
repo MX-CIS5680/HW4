@@ -68,7 +68,6 @@ namespace MyFirstARGame
             networkCommunication.SetScore(amt);
         }
 
-        [PunRPC]
         private void BecomeScrap(){
             Debug.Log("Become Scrap");
             active = false;
@@ -102,9 +101,9 @@ namespace MyFirstARGame
                     SetScore(GetScore() + 5);
                     PhotonNetwork.Destroy(gameObject);
                 }
-                else if (active)
+                else if (active && other.gameObject.CompareTag("Player"))
                 {
-                    //photonView.RPC("BecomeScrap", RpcTarget.All);
+                    BecomeScrap();
                     SetScore(GetScore() + 10);
                 }
             }
@@ -117,10 +116,10 @@ namespace MyFirstARGame
         private void Update() {
             if (photonView.IsMine)
             {
-                //if (active)
-                //{
-                //    Wander();
-                //}
+                if (active)
+                {
+                   Wander();
+                }
             }
         }
     }
