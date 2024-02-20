@@ -76,20 +76,13 @@ namespace MyFirstARGame
         public void Network_SetEnemyFled(int amt){
             Debug.Log("Set Enemey Fled: " + amt);
             resources.SetEnemyFled(amt);
-            if(resources.gameOver){
+            if(resources.gameOver && PhotonNetwork.IsMasterClient){
                 Invoke("QuitRoom",2.0f);
             }
         }
 
         void QuitRoom(){
             PhotonNetwork.LeaveRoom();
-        }
-
-        public void UpdateForNewPlayer(Player player)
-        {
-            //var playerName = $"Player {PhotonNetwork.LocalPlayer.ActorNumber}";
-            //var currentScore = this.scoreboard.GetScore(playerName);
-            //photonView.RPC("Network_SetPlayerScore", RpcTarget.All, playerName, currentScore);
         }
     }
 

@@ -28,7 +28,9 @@ namespace MyFirstARGame
         {
             // #Critical
             // this makes sure we can use PhotonNetwork.LoadLevel() on the master client and all clients in the same room sync their level automatically
-            //PhotonNetwork.AutomaticallySyncScene = true;
+#if UNITY_ANDROID
+            PhotonNetwork.AutomaticallySyncScene = true;
+#endif
         }
 
         // Start is called before the first frame update

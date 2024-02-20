@@ -116,12 +116,16 @@ namespace MyFirstARGame
         public override void OnLeftRoom()
         {
             Debug.Log("Left room");
+            if(PhotonNetwork.IsMasterClient)
+            {
+                photonView.RPC("LeaveRoom", RpcTarget.Others);
+            }
+
             SceneManager.LoadScene("Menu", LoadSceneMode.Single);
         }
 
         public override void OnPlayerEnteredRoom(Player newPlayer)
         {
-            NetworkCommunication.UpdateForNewPlayer(newPlayer);
         }
 
         public void LeaveRoom()
