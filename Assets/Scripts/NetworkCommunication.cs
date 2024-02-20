@@ -63,7 +63,7 @@ namespace MyFirstARGame
         [PunRPC]
         public void Network_SetScore(int amt){
             Debug.Log("Set Score: " + amt);
-            resources.score = amt;
+            resources.setScore(amt);
         }
 
         public void SetEnemyFled(int amt){
@@ -77,10 +77,13 @@ namespace MyFirstARGame
             Debug.Log("Set Enemey Fled: " + amt);
             resources.SetEnemyFled(amt);
             if(resources.gameOver){
-                PhotonNetwork.LeaveRoom();
+                Invoke("QuitRoom",2.0f);
             }
         }
 
+        void QuitRoom(){
+            PhotonNetwork.LeaveRoom();
+        }
 
         public void UpdateForNewPlayer(Player player)
         {

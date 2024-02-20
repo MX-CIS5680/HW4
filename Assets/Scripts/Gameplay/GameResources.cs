@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -14,10 +15,19 @@ namespace MyFirstARGame
         public int enemyFled;
 
         public bool gameOver = false;
+
+        public GameObject gameOverText;
+
+        public void setScore(int amt){
+            if(gameOver)return;
+            score = amt;
+        }
         public void setBullet(int amt){
+            if(gameOver)return;
             bullet = amt;
         }
         public void SetEnemyFled(int amt){
+            if(gameOver)return;
             enemyFled = amt;
             if(enemyFled > 3){
                 gameOver = true;
@@ -29,7 +39,8 @@ namespace MyFirstARGame
             GUILayout.BeginVertical();
             GUILayout.FlexibleSpace();
             if(gameOver){   
-                GUILayout.Label("GameOver", new GUIStyle { normal = new GUIStyleState { textColor = Color.red }, fontSize = 22 });
+                gameOverText.SetActive(true);
+                //GUILayout.Label("GameOver", new GUIStyle { normal = new GUIStyleState { textColor = Color.red }, fontSize = 22 });
                 GUILayout.Label("Score:" + score, new GUIStyle { normal = new GUIStyleState { textColor = Color.black }, fontSize = 22 });
             }else{
                 GUILayout.Label("Score:" + score, new GUIStyle { normal = new GUIStyleState { textColor = Color.black }, fontSize = 22 });
