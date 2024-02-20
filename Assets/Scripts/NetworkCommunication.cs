@@ -64,6 +64,9 @@ namespace MyFirstARGame
         public void Network_SetScore(int amt){
             Debug.Log("Set Score: " + amt);
             resources.setScore(amt);
+            if(resources.gameOver && PhotonNetwork.IsMasterClient){
+                Invoke("QuitRoom",2.0f);
+            }
         }
 
         public void SetEnemyFled(int amt){

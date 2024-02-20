@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "R5CN20R8L7H",
         "name": "com.unity.penn.argame",
-        "processId": 25342,
+        "processId": 19389,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -35,13 +35,7 @@
         {
             "deviceId": "R5CN20R8L7H",
             "name": "com.unity.penn.argame",
-            "processId": 23672,
-            "exited": false
-        },
-        {
-            "deviceId": "R5CN20R8L7H",
-            "name": "com.unity.penn.argame",
-            "processId": 25342,
+            "processId": 19389,
             "exited": false
         }
     ],

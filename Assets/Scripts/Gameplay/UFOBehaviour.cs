@@ -124,7 +124,7 @@ namespace MyFirstARGame
                     {
                         Debug.Log("Can't find networkCommunication");
                     }
-                    networkCommunication.SetEnemyFled(networkCommunication.GetEnemyFled() + 1);
+                    if(active)networkCommunication.SetEnemyFled(networkCommunication.GetEnemyFled() + 1);
                     PhotonNetwork.Destroy(gameObject);
                 }
                 if (active)
