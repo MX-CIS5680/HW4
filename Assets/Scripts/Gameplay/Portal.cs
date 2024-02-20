@@ -14,9 +14,7 @@ namespace MyFirstARGame
 
         void Start()
         {
-            if (PhotonNetwork.IsMasterClient)SpawnUFO();
-
-                
+            if (PhotonNetwork.IsMasterClient) SpawnUFO();
         }
         void SpawnUFO(){
             Vector3 jitter = new Vector3(
