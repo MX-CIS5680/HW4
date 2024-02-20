@@ -77,9 +77,10 @@ namespace MyFirstARGame
             
         }
 
-        private void OnCollisionEnter(Collision other) {
+        /*private void OnCollisionEnter(Collision other) {
             if(photonView.IsMine)
             {
+                Debug.Log("UFO being Hit");
                 if (networkCommunication == null)
                 {
                     networkCommunication = FindObjectOfType<NetworkCommunication>();
@@ -96,11 +97,11 @@ namespace MyFirstARGame
                 }
                 else if (active)
                 {
-                    photonView.RPC("BecomeScrap", RpcTarget.All);
+                    //photonView.RPC("BecomeScrap", RpcTarget.All);
                     SetScore(GetScore() + 10);
                 }
             }
-        }
+        }*/
         
         private void Awake()
         {
@@ -109,10 +110,10 @@ namespace MyFirstARGame
         private void Update() {
             if (photonView.IsMine)
             {
-                if (active)
-                {
-                    Wander();
-                }
+                //if (active)
+                //{
+                //    Wander();
+                //}
             }
         }
     }

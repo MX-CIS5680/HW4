@@ -26,9 +26,9 @@ namespace MyFirstARGame
         }
 
         private void OnCollisionEnter(Collision other) {
-            Debug.Log(other.gameObject.name);
             if(photonView.IsMine)
             {
+                Debug.Log(other.gameObject.name);
                 PhotonNetwork.Destroy(gameObject);
                 //photonView.RPC("DestroyMyself", RpcTarget.MasterClient);
             }
