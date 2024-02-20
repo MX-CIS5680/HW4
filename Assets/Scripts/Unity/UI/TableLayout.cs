@@ -15,7 +15,7 @@ namespace UnityEngine.XR.ARFoundation.Samples
         RectTransform m_RectTransform;
 
         [SerializeField]
-        List<RectTransform> m_Cells = new();
+        public List<RectTransform> m_Cells = new();
 
         [SerializeField]
         Alignment m_Alignment = Alignment.Center;
@@ -51,7 +51,7 @@ namespace UnityEngine.XR.ARFoundation.Samples
             Refresh();
         }
 
-        void Refresh()
+        public void Refresh()
         {
             // Can happen if this GameObject was marked for destroy before the Editor delay call executes
             if (this == null)
@@ -74,7 +74,7 @@ namespace UnityEngine.XR.ARFoundation.Samples
             }
         }
 
-        void RegenerateLayout()
+        public void RegenerateLayout()
         {
             var rect = m_RectTransform.rect;
             var xCenter = rect.xMin + rect.width / 2;

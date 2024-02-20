@@ -7,15 +7,22 @@ namespace MyFirstARGame
 {
     using Photon.Pun;
     using Photon.Realtime;
+    using TMPro;
     using UnityEngine;
     using UnityEngine.SceneManagement;
     using UnityEngine.UIElements;
+    using UnityEngine.XR.ARFoundation.Samples;
 
     public class LobbyManager : MonoBehaviourPunCallbacks
     {
         public GameObject scrollViewContent;
         public GameObject itemPrefab;
+        public GameObject connecting;
+
         public Text selectedText;
+
+        public Dictionary<string, GameObject> currentRooms = new Dictionary<string, GameObject>();
+        public TableLayout tableLayout;
 
         void Awake()
         {
@@ -31,6 +38,15 @@ namespace MyFirstARGame
             {
                 PhotonNetwork.ConnectUsingSettings();
             }
+
+            tableLayout = scrollViewContent.GetComponent<TableLayout>();
+        }
+
+        public override void OnConnected()
+        {
+            Text text = connecting.GetComponent<Text>();
+            text.text = "Connected!";
+            text.color = Color.green;
         }
 
         // Update is called once per frame
@@ -51,15 +67,29 @@ namespace MyFirstARGame
 
         void UpdateRoomListUI(List<RoomInfo> roomList)
         {
-            ClearScrollView();
             Debug.Log("RoomListUpdate: " + roomList.Count + " rooms");
             foreach (RoomInfo room in roomList)
             {
-                if (room.PlayerCount > 0)
+                if(room.RemovedFromList && currentRooms.ContainsKey(room.Name))
                 {
-                    AddRoomList(room.Name);
+                    GameObject obj = currentRooms[room.Name];
+                    tableLayout.m_Cells.Remove(obj.GetComponent<RectTransform>());
+                    Destroy(obj);
+                    currentRooms.Remove(room.Name);
+                    continue;
+                }
+                if(room.IsOpen)
+                {
+                    if (room.PlayerCount > 0)
+                    {
+                        GameObject obj = AddRoomList(room.Name);
+                        currentRooms[room.Name] = obj;
+                        tableLayout.m_Cells.Add(obj.GetComponent<RectTransform>());
+                    }
                 }
             }
+            tableLayout.Refresh();
+            tableLayout.Refresh();
         }
 
         private void ClearScrollView()
@@ -73,13 +103,15 @@ namespace MyFirstARGame
                 }
             }
         }
-        private void AddRoomList(string name)
+        private GameObject AddRoomList(string name)
         {
             GameObject newItem = Instantiate(itemPrefab, scrollViewContent.transform);
 
             // Set the text of the item
             newItem.GetComponent<Selectable>().selectedText = selectedText;
             newItem.GetComponentInChildren<Text>().text = name;
+
+            return newItem;
         }
 
         public void CreateRoom()
@@ -87,6 +119,7 @@ namespace MyFirstARGame
             RoomOptions options = new RoomOptions();
             options.EmptyRoomTtl = 100;
             string room_name = "TestRooms_" + PhotonNetwork.CountOfRooms;
+
             PhotonNetwork.CreateRoom(room_name, options);
         }
 

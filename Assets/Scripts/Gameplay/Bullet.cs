@@ -28,6 +28,8 @@ namespace MyFirstARGame
                     var material = this.projectileMaterials[playerId % this.projectileMaterials.Length];
                     this.transform.GetComponent<Renderer>().material = material;
                 }
+
+                Invoke("DestroyMyself", 5);
             }
         }
 
@@ -41,13 +43,9 @@ namespace MyFirstARGame
             }
         }
 
-        private void OnCollisionEnter(Collision other) {
-            //if(photonView.IsMine)
-            {
-                Debug.Log(other.gameObject.name);
-                //Destroy(gameObject);
-                //photonView.RPC("DestroyMyself", RpcTarget.MasterClient);
-            }
+        public void DestroyMyself()
+        {
+            PhotonNetwork.Destroy(gameObject);
         }
 
         public override void OnPlayerEnteredRoom(Player newPlayer)
