@@ -78,19 +78,27 @@ namespace MyFirstARGame
         }
 
         private void OnCollisionEnter(Collision other) {
-            if(networkCommunication == null){
-                networkCommunication = FindObjectOfType<NetworkCommunication>();
-            }
-            if(networkCommunication == null){
-                Debug.Log("Can't find networkCommunication");
-            }
-            if(!active && other.gameObject.CompareTag("Player")){
-                SetBulletCount(GetBulletCount() + 2);
-                SetScore(GetScore() + 5);
-                PhotonNetwork.Destroy(gameObject);
-            }else if(active){
-                photonView.RPC("BecomeScrap", RpcTarget.All);
-                SetScore(GetScore() + 10);
+            if(photonView.IsMine)
+            {
+                if (networkCommunication == null)
+                {
+                    networkCommunication = FindObjectOfType<NetworkCommunication>();
+                }
+                if (networkCommunication == null)
+                {
+                    Debug.Log("Can't find networkCommunication");
+                }
+                if (!active && other.gameObject.CompareTag("Player"))
+                {
+                    SetBulletCount(GetBulletCount() + 2);
+                    SetScore(GetScore() + 5);
+                    PhotonNetwork.Destroy(gameObject);
+                }
+                else if (active)
+                {
+                    photonView.RPC("BecomeScrap", RpcTarget.All);
+                    SetScore(GetScore() + 10);
+                }
             }
         }
         
@@ -99,8 +107,12 @@ namespace MyFirstARGame
         }
 
         private void Update() {
-            if(active){
-                Wander();
+            if (photonView.IsMine)
+            {
+                if (active)
+                {
+                    Wander();
+                }
             }
         }
     }
