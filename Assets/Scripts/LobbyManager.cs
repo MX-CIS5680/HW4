@@ -135,7 +135,7 @@ namespace MyFirstARGame
 
         public override void OnJoinedRoom()
         {
-            SceneManager.LoadScene("Game_PC", LoadSceneMode.Single);
+            SceneManager.LoadScene("Game", LoadSceneMode.Single);
         }
     }
 }

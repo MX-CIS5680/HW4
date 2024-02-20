@@ -115,8 +115,8 @@ namespace MyFirstARGame
 
         public override void OnLeftRoom()
         {
-            Debug.Log("Left room");
-            if(PhotonNetwork.IsMasterClient)
+            Debug.Log("Leaving room");
+            if (PhotonNetwork.IsMasterClient)
             {
                 photonView.RPC("LeaveRoom", RpcTarget.Others);
             }
@@ -130,6 +130,7 @@ namespace MyFirstARGame
 
         public void LeaveRoom()
         {
+            Debug.Log("Left room");
             PhotonNetwork.LeaveRoom();
         }
     }
