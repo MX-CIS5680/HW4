@@ -28,7 +28,7 @@ namespace MyFirstARGame
         {
             // #Critical
             // this makes sure we can use PhotonNetwork.LoadLevel() on the master client and all clients in the same room sync their level automatically
-            PhotonNetwork.AutomaticallySyncScene = true;
+            //PhotonNetwork.AutomaticallySyncScene = true;
         }
 
         // Start is called before the first frame update
@@ -133,7 +133,7 @@ namespace MyFirstARGame
 
         public override void OnJoinedRoom()
         {
-            SceneManager.LoadScene("Game", LoadSceneMode.Single);
+            SceneManager.LoadScene("Game_PC", LoadSceneMode.Single);
         }
     }
 }
