@@ -15,10 +15,12 @@ namespace MyFirstARGame
 
         private void Awake()
         {
+            PlayerCount = PhotonNetwork.CurrentRoom.PlayerCount;
+
             // Pick a material based on our player number so that we can distinguish between projectiles. We use the player number
             // but wrap around if we have more players than materials. This number was passed to us when the projectile was instantiated.
             // See ProjectileLauncher.cs for more details.
-            if(photonView.IsMine)
+            if (photonView.IsMine)
             {
                 var photonView = this.transform.GetComponent<PhotonView>();
                 var playerId = Mathf.Max((int)photonView.InstantiationData[0], 0);
@@ -31,24 +33,20 @@ namespace MyFirstARGame
         }
 
 
-        //[PunRPC]
-        //public void TryDestroy()
-        //{
-        //    if (photonView.IsMine)
-        //    {
-        //        Destroy(gameObject);
-        //    }
-        //    else
-        //    {
-        //
-        //    }
-        //}
+        [PunRPC]
+        public void TryDestroy()
+        {
+            if (photonView.IsMine && --PlayerCount == 0)
+            {
+                PhotonNetwork.Destroy(gameObject);
+            }
+        }
 
         private void OnCollisionEnter(Collision other) {
             //if(photonView.IsMine)
             {
                 Debug.Log(other.gameObject.name);
-                Destroy(gameObject);
+                //Destroy(gameObject);
                 //photonView.RPC("DestroyMyself", RpcTarget.MasterClient);
             }
         }

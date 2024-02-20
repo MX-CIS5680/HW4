@@ -82,6 +82,7 @@ namespace MyFirstARGame
             Bullet bullet = other.gameObject.GetComponent<Bullet>();
             if(bullet != null)
             {
+                bullet.photonView.RPC("TryDestroy", RpcTarget.All);
             }
 
             if(photonView.IsMine)
