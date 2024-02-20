@@ -10,6 +10,8 @@ namespace MyFirstARGame
         // Start is called before the first frame update
         public int score;
         public int bullet;
+
+        public int enemyFled;
         public void setBullet(int amt){
             bullet = amt;
         }
@@ -21,6 +23,7 @@ namespace MyFirstARGame
 
             GUILayout.Label("Score:" + score, new GUIStyle { normal = new GUIStyleState { textColor = Color.black }, fontSize = 22 });
             GUILayout.Label("Bullet:" + bullet, new GUIStyle { normal = new GUIStyleState { textColor = Color.black }, fontSize = 22 });
+            GUILayout.Label("Fled Enemy:" + enemyFled, new GUIStyle { normal = new GUIStyleState { textColor = Color.black }, fontSize = 22 });
 
             GUILayout.FlexibleSpace();
             GUILayout.EndVertical();
