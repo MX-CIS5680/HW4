@@ -23,7 +23,15 @@ namespace MyFirstARGame
         }
 
         int GetBulletCount(){
-            return networkCommunication.GetBullet();
+            if(networkCommunication == null)
+            {
+                networkCommunication = FindObjectOfType<NetworkCommunication>();
+            }
+            if(networkCommunication != null)
+            {
+                return networkCommunication.GetBullet();
+            }
+            return -1;
         }
 
         void SetBulletCount(int amt){

@@ -59,12 +59,11 @@ namespace MyFirstARGame
 
         private void Start()
         {
-            if(PhotonNetwork.InRoom)
+            if(PhotonNetwork.InRoom && PhotonNetwork.IsMasterClient)
             {
                 Debug.Log("Joined Room!");
                 isJoinedToRoom = true;
                 NetworkCommunication = PhotonNetwork.Instantiate("NetworkManager", Vector3.zero, Quaternion.identity).GetComponent<NetworkCommunication>();
-                //JoinedRoom?.Invoke(this);
             }
             else
             {
