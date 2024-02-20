@@ -20,6 +20,7 @@ namespace MyFirstARGame
             // See ProjectileLauncher.cs for more details.
             if (photonView.IsMine)
             {
+                PlayerCount = PhotonNetwork.CurrentRoom.PlayerCount;
                 var photonView = this.transform.GetComponent<PhotonView>();
                 var playerId = Mathf.Max((int)photonView.InstantiationData[0], 0);
                 if (this.projectileMaterials.Length > 0)
