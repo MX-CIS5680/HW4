@@ -1,9 +1,9 @@
 {
     "m_SelectedDeviceId": "R5CN20R8L7H",
     "m_SelectedPackage": {
-        "deviceId": "R5CN20R8L7H",
-        "name": "com.unity.penn.argame",
-        "processId": 4547,
+        "deviceId": "",
+        "name": "",
+        "processId": 0,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -11,50 +11,26 @@
         {
             "deviceId": "R5CN20R8L7H",
             "name": "com.unity.penn.argame",
-            "processId": 5131,
-            "exited": false
-        },
-        {
-            "deviceId": "R5CN20R8L7H",
-            "name": "com.unity.penn.argame",
-            "processId": 11342,
-            "exited": false
-        },
-        {
-            "deviceId": "R5CN20R8L7H",
-            "name": "com.unity.penn.argame",
-            "processId": 14399,
-            "exited": false
-        },
-        {
-            "deviceId": "R5CN20R8L7H",
-            "name": "com.unity.penn.argame",
-            "processId": 17251,
-            "exited": false
-        },
-        {
-            "deviceId": "R5CN20R8L7H",
-            "name": "com.unity.penn.argame",
-            "processId": 18384,
-            "exited": false
-        },
-        {
-            "deviceId": "R5CN20R8L7H",
-            "name": "com.unity.penn.argame",
-            "processId": 20756,
-            "exited": false
-        },
-        {
-            "deviceId": "R5CN20R8L7H",
-            "name": "com.unity.penn.argame",
             "processId": 22316,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "R5CN20R8L7H",
             "name": "com.unity.penn.argame",
             "processId": 4547,
-            "exited": false
+            "exited": true
+        },
+        {
+            "deviceId": "R5CN20R8L7H",
+            "name": "com.unity.penn.argame",
+            "processId": 13774,
+            "exited": true
+        },
+        {
+            "deviceId": "R5CN20R8L7H",
+            "name": "com.unity.penn.argame",
+            "processId": 15390,
+            "exited": true
         }
     ],
     "m_Tags": {
