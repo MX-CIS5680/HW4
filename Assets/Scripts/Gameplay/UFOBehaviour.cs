@@ -78,11 +78,11 @@ namespace MyFirstARGame
 
         private void OnCollisionEnter(Collision other) 
         {
-            Bullet bullet = other.gameObject.GetComponent<Bullet>();
-            if(bullet != null)
-            {
-                bullet.photonView.RPC("TryDestroy", RpcTarget.All);
-            }
+            // Bullet bullet = other.gameObject.GetComponent<Bullet>();
+            // if(bullet != null)
+            // {
+            //     bullet.photonView.RPC("TryDestroy", RpcTarget.All);
+            // }
 
             if(photonView.IsMine)
             {

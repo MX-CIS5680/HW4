@@ -33,6 +33,10 @@ namespace MyFirstARGame
             }
         }
 
+        private void OnCollisionEnter(Collision other) {
+            photonView.RPC("TryDestroy", RpcTarget.All);
+        }
+
 
         [PunRPC]
         public void TryDestroy()
