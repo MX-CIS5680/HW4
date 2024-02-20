@@ -30,11 +30,25 @@ namespace MyFirstARGame
             }
         }
 
+
+        //[PunRPC]
+        //public void TryDestroy()
+        //{
+        //    if (photonView.IsMine)
+        //    {
+        //        Destroy(gameObject);
+        //    }
+        //    else
+        //    {
+        //
+        //    }
+        //}
+
         private void OnCollisionEnter(Collision other) {
-            if(photonView.IsMine)
+            //if(photonView.IsMine)
             {
                 Debug.Log(other.gameObject.name);
-                //PhotonNetwork.Destroy(gameObject);
+                Destroy(gameObject);
                 //photonView.RPC("DestroyMyself", RpcTarget.MasterClient);
             }
         }

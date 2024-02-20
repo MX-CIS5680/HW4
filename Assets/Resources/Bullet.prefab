@@ -190,3 +190,4 @@ MonoBehaviour:
   projectileMaterials:
   - {fileID: 2100000, guid: 6e1fd3ab57cbad24898e46e66380a0ec, type: 2}
   - {fileID: 2100000, guid: 893dba8f92a1e5b4f821ac96b7c2b845, type: 2}
+  PlayerCount: 0

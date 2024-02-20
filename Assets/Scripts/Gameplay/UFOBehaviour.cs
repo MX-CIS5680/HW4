@@ -77,7 +77,13 @@ namespace MyFirstARGame
             
         }
 
-        /*private void OnCollisionEnter(Collision other) {
+        private void OnCollisionEnter(Collision other) 
+        {
+            Bullet bullet = other.gameObject.GetComponent<Bullet>();
+            if(bullet != null)
+            {
+            }
+
             if(photonView.IsMine)
             {
                 Debug.Log("UFO being Hit");
@@ -101,7 +107,7 @@ namespace MyFirstARGame
                     SetScore(GetScore() + 10);
                 }
             }
-        }*/
+        }
         
         private void Awake()
         {
