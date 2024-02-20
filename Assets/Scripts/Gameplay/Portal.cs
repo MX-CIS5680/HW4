@@ -9,26 +9,33 @@ namespace MyFirstARGame
     {
         public GameObject enemyPrefab;
         public float countDown;
-
         public float spawnInterval;
-        // Start is called before the first frame update
+        public float spawnRadius;
 
         void Start()
         {
-            if (PhotonNetwork.IsMasterClient)
-                PhotonNetwork.Instantiate(this.enemyPrefab.name, transform.position, Quaternion.identity);
-        }
+            if (PhotonNetwork.IsMasterClient)SpawnUFO();
 
+                
+        }
+        void SpawnUFO(){
+            Vector3 jitter = new Vector3(
+                    Random.Range(-1.0f,1.0f),
+                    Random.Range(-1.0f,1.0f),
+                    Random.Range(-1.0f,1.0f));
+            jitter.Normalize();
+            PhotonNetwork.Instantiate(this.enemyPrefab.name, transform.position + jitter * spawnRadius, Quaternion.identity);
+        }
         // Update is called once per frame
         void Update()
         {
-            //if(PhotonNetwork.IsMasterClient){
-            //    countDown -= Time.deltaTime;
-            //    if(countDown < 0){
-            //        countDown = Random.Range(1, 1 + spawnInterval);
-            //        PhotonNetwork.Instantiate(this.enemyPrefab.name, transform.position, Quaternion.identity);
-            //    }
-            //}
+            if(PhotonNetwork.IsMasterClient){
+               countDown -= Time.deltaTime;
+               if(countDown < 0){
+                   countDown = Random.Range(1, 1 + spawnInterval);
+                   SpawnUFO();
+               }
+            }
         }
     }
 }
