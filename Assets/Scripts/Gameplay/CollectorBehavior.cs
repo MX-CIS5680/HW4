@@ -50,6 +50,7 @@ namespace MyFirstARGame
                 GameObject hitObj = hit.collider.gameObject;
                 UFOBehaviour ufo  = hitObj.GetComponent<UFOBehaviour>();
                 if(ufo!=null && !ufo.active){
+                    Debug.Log("Try Collect");
                     ufo.GetCollected();
                 }
             }

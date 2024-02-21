@@ -122,6 +122,8 @@ namespace MyFirstARGame
         private void Network_GetShot(){
             if(photonView.IsMine){
                 GetShotMine();
+            }else{
+                BecomeScrap();
             }
         }
 
