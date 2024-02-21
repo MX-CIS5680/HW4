@@ -94,6 +94,7 @@ namespace MyFirstARGame
             active = false;
             Rigidbody rigidbody = GetComponent<Rigidbody>();
             rigidbody.useGravity = true;
+            
         }
 
         public void GetCollected(){
@@ -112,19 +113,12 @@ namespace MyFirstARGame
         }
 
         public void GetShot(){
-            photonView.RPC("Network_GetShot",RpcTarget.All);
-        }
-        private void GetShotMine(){
-            BecomeScrap();
+            photonView.RPC("Network_BecomeScrap",RpcTarget.All);
             SetScore(GetScore() + 10);
         }
         [PunRPC]
-        private void Network_GetShot(){
-            if(photonView.IsMine){
-                GetShotMine();
-            }else{
-                BecomeScrap();
-            }
+        private void Network_BecomeScrap(){
+            BecomeScrap();
         }
 
         private void OnCollisionEnter(Collision other) 
@@ -135,7 +129,7 @@ namespace MyFirstARGame
             }
             else if (active && other.gameObject.CompareTag("Bullet") && photonView.IsMine)
             {
-                GetShotMine();
+                GetShot();
             }
         }
         
