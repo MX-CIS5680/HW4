@@ -3,6 +3,7 @@ namespace MyFirstARGame
     using UnityEngine;
     using Photon.Pun;
     using System.Threading;
+    using UnityEditor.Build.Content;
 
     /// <summary>
     /// Controls projectile behaviour. In our case it currently only changes the material of the projectile based on the player that owns it.
@@ -56,18 +57,26 @@ namespace MyFirstARGame
         }
 
         int GetBulletCount(){
+            if (networkCommunication == null)networkCommunication = FindObjectOfType<NetworkCommunication>();
+            if (networkCommunication == null)Debug.Log("Can't find networkCommunication");
             return networkCommunication.GetBullet();
         }
 
         void SetBulletCount(int amt){
+            if (networkCommunication == null)networkCommunication = FindObjectOfType<NetworkCommunication>();
+            if (networkCommunication == null)Debug.Log("Can't find networkCommunication");
             networkCommunication.SetBullet(amt);
         }
 
         int GetScore(){
+            if (networkCommunication == null)networkCommunication = FindObjectOfType<NetworkCommunication>();
+            if (networkCommunication == null)Debug.Log("Can't find networkCommunication");
             return networkCommunication.GetScore();
         }
 
         void SetScore(int amt){
+            if (networkCommunication == null)networkCommunication = FindObjectOfType<NetworkCommunication>();
+            if (networkCommunication == null)Debug.Log("Can't find networkCommunication");
             networkCommunication.SetScore(amt);
         }
 
@@ -79,31 +88,44 @@ namespace MyFirstARGame
             
         }
 
+        public void GetCollected(){
+            photonView.RPC("Network_GetCollected",RpcTarget.All);
+        }
+        private void GetCollectedMine(){
+            SetBulletCount(GetBulletCount() + 2);
+            SetScore(GetScore() + 5);
+            PhotonNetwork.Destroy(gameObject);
+        }
+        [PunRPC]
+        private void Network_GetCollected(){
+            if(photonView.IsMine){
+                GetCollectedMine();
+            }
+        }
+
+        public void GetShot(){
+            photonView.RPC("Network_GetShot",RpcTarget.All);
+        }
+        private void GetShotMine(){
+            BecomeScrap();
+            SetScore(GetScore() + 10);
+        }
+        [PunRPC]
+        private void Network_GetShot(){
+            if(photonView.IsMine){
+                GetShotMine();
+            }
+        }
+
         private void OnCollisionEnter(Collision other) 
         {
-
-            if(photonView.IsMine)
+            if (!active && other.gameObject.CompareTag("Collector") && photonView.IsMine)
             {
-                Debug.Log("UFO being Hit");
-                if (networkCommunication == null)
-                {
-                    networkCommunication = FindObjectOfType<NetworkCommunication>();
-                }
-                if (networkCommunication == null)
-                {
-                    Debug.Log("Can't find networkCommunication");
-                }
-                if (!active && other.gameObject.CompareTag("Collector"))
-                {
-                    SetBulletCount(GetBulletCount() + 2);
-                    SetScore(GetScore() + 5);
-                    PhotonNetwork.Destroy(gameObject);
-                }
-                else if (active && other.gameObject.CompareTag("Bullet"))
-                {
-                    BecomeScrap();
-                    SetScore(GetScore() + 10);
-                }
+                GetCollectedMine();
+            }
+            else if (active && other.gameObject.CompareTag("Bullet") && photonView.IsMine)
+            {
+                GetShotMine();
             }
         }
         

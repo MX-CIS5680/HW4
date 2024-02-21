@@ -51,6 +51,8 @@ MonoBehaviour:
   - TryDestroy
   - LeaveRoom
   - QuitRoom
+  - Network_GetCollected
+  - Network_GetShot
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1
