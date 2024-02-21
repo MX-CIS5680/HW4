@@ -94,7 +94,6 @@ namespace MyFirstARGame
             active = false;
             Rigidbody rigidbody = GetComponent<Rigidbody>();
             rigidbody.useGravity = true;
-            
         }
 
         public void GetCollected(){

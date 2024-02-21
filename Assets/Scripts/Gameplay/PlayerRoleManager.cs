@@ -28,7 +28,8 @@ namespace MyFirstARGame
                 BecomeShooter();
                 //BecomeCollector();
             }else{
-                BecomeShooter();
+                //BecomeShooter();
+                BecomeCollector();
             }
         }
 

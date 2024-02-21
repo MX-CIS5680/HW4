@@ -105,6 +105,7 @@ MonoBehaviour:
   winText: {fileID: 6981954645450449833}
   winScore: 50
   loseScore: 30
+  m_fontSize: 42
 --- !u!1 &5654535646776920274
 GameObject:
   m_ObjectHideFlags: 0
