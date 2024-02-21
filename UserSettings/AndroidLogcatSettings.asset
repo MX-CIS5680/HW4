@@ -1,13 +1,25 @@
 {
     "m_SelectedDeviceId": "R5CN20R8L7H",
     "m_SelectedPackage": {
-        "deviceId": "",
-        "name": "",
-        "processId": 0,
+        "deviceId": "R5CN20R8L7H",
+        "name": "com.unity.penn.argame",
+        "processId": 22727,
         "exited": false
     },
     "m_SelectedPriority": 0,
     "m_KnownPackagesForSerialization": [
+        {
+            "deviceId": "R5CN20R8L7H",
+            "name": "com.unity.penn.argame",
+            "processId": 22316,
+            "exited": true
+        },
+        {
+            "deviceId": "R5CN20R8L7H",
+            "name": "com.unity.penn.argame",
+            "processId": 4547,
+            "exited": true
+        },
         {
             "deviceId": "R5CN20R8L7H",
             "name": "com.unity.penn.argame",
@@ -24,18 +36,30 @@
             "deviceId": "R5CN20R8L7H",
             "name": "com.unity.penn.argame",
             "processId": 19389,
-            "exited": true
+            "exited": false
         },
         {
             "deviceId": "R5CN20R8L7H",
             "name": "com.unity.penn.argame",
-            "processId": 25390,
-            "exited": true
+            "processId": 9849,
+            "exited": false
         },
         {
             "deviceId": "R5CN20R8L7H",
-            "name": "com.sec.android.app.launcher",
-            "processId": 3023,
+            "name": "com.unity.penn.argame",
+            "processId": 18463,
+            "exited": false
+        },
+        {
+            "deviceId": "R5CN20R8L7H",
+            "name": "com.unity.penn.argame",
+            "processId": 21134,
+            "exited": false
+        },
+        {
+            "deviceId": "R5CN20R8L7H",
+            "name": "com.unity.penn.argame",
+            "processId": 22727,
             "exited": false
         }
     ],
