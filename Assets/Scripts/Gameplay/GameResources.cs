@@ -23,6 +23,8 @@ namespace MyFirstARGame
         public int winScore;
         public int loseScore;
 
+        public int m_fontSize = 42;
+
         public void setScore(int amt){
             if(gameOver)return;
             score = amt;
@@ -54,9 +56,9 @@ namespace MyFirstARGame
                 gameOverText.SetActive(true);
                 //GUILayout.Label("Score:" + score, new GUIStyle { normal = new GUIStyleState { textColor = Color.black }, fontSize = 22 });
             }else{
-                GUILayout.Label("Score:" + score, new GUIStyle { normal = new GUIStyleState { textColor = Color.black }, fontSize = 22 });
-                GUILayout.Label("Bullet:" + bullet, new GUIStyle { normal = new GUIStyleState { textColor = Color.black }, fontSize = 22 });
-                GUILayout.Label("Fled Enemy:" + enemyFled, new GUIStyle { normal = new GUIStyleState { textColor = Color.black }, fontSize = 22 });
+                GUILayout.Label("Score:" + score, new GUIStyle { normal = new GUIStyleState { textColor = Color.green }, fontSize = m_fontSize });
+                GUILayout.Label("Bullet:" + bullet, new GUIStyle { normal = new GUIStyleState { textColor = Color.green }, fontSize = m_fontSize });
+                GUILayout.Label("Fled Enemy:" + enemyFled, new GUIStyle { normal = new GUIStyleState { textColor = Color.red }, fontSize = m_fontSize });
             }
             
             GUILayout.FlexibleSpace();
