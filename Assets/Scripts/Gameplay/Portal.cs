@@ -20,7 +20,7 @@ namespace MyFirstARGame
         void SpawnUFO(){
             Vector3 jitter = new Vector3(
                     Random.Range(-1.0f,1.0f),
-                    Random.Range(-1.0f,1.0f),
+                    0,//Random.Range(-1.0f,1.0f),
                     Random.Range(-1.0f,1.0f));
             jitter.Normalize();
             PhotonNetwork.Instantiate(this.enemyPrefab.name, transform.position + jitter * spawnRadius, Quaternion.identity);

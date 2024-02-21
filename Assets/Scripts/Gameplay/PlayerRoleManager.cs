@@ -25,8 +25,8 @@ namespace MyFirstARGame
         void Start()
         {
             if(PhotonNetwork.IsMasterClient){
-                //BecomeShooter();
-                BecomeCollector();
+                BecomeShooter();
+                //BecomeCollector();
             }else{
                 BecomeShooter();
             }

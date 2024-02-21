@@ -15,13 +15,15 @@ namespace MyFirstARGame
         public float rotationSpeed = 2;
 
         [SerializeField]
-        private float wanderRadius = 10;
+        private float wanderRadius = 0.05f;
         [SerializeField]
-        private float wanderDistance = 10;
+        private float wanderDistance = 0.05f;
         [SerializeField]
-        private float wanderJitter = 1;
+        private float wanderJitter = 0.01f;
 
         public float timeToFlee = 10;
+
+        public Vector2 ascendingHeight = new Vector2(0.2f,0.4f);
 
         public bool active = true;
         NetworkCommunication networkCommunication = null;
@@ -36,10 +38,10 @@ namespace MyFirstARGame
         }
         
         private void Wander(){
-            if(Vector3.Distance(wanderTarget,transform.position) < 0.2f){
+            if(Vector3.Distance(wanderTarget,transform.position) < 0.02f){
                 Vector3 newTarget = new Vector3(
                     Random.Range(-1.0f,1.0f) * wanderJitter
-                    ,Random.Range(-1.0f,1.0f) * wanderJitter
+                    ,Random.Range(-0.5f,0.5f) * wanderJitter
                     ,Random.Range(-1.0f,1.0f) * wanderJitter);
                 
                 newTarget.Normalize();
@@ -52,7 +54,15 @@ namespace MyFirstARGame
         }
 
         private void Start(){
-            wanderTarget = transform.position;
+            //wanderTarget = transform.position;
+            Vector3 newTarget = new Vector3(
+                Random.Range(-1.0f,1.0f) * wanderJitter
+                ,Random.Range(-1.0f,1.0f) * wanderJitter
+                ,Random.Range(-1.0f,1.0f) * wanderJitter);
+            newTarget.Normalize();
+            newTarget *= wanderRadius;
+            newTarget += new Vector3(0,Random.Range(ascendingHeight.x,ascendingHeight.y),0);
+            wanderTarget = transform.InverseTransformVector(newTarget);
         }
 
         int GetBulletCount(){
