@@ -33,7 +33,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5748202053493613243}
@@ -107,7 +107,7 @@ MonoBehaviour:
   wanderRadius: 0.05
   wanderDistance: 0.05
   wanderJitter: 0.01
-  timeToFlee: 10
+  timeToFlee: 20
   active: 1
 --- !u!54 &1265376223539670748
 Rigidbody:

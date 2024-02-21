@@ -103,6 +103,8 @@ MonoBehaviour:
   youWin: 0
   gameOverText: {fileID: 5654535646776920274}
   winText: {fileID: 6981954645450449833}
+  winScore: 50
+  loseScore: 30
 --- !u!1 &5654535646776920274
 GameObject:
   m_ObjectHideFlags: 0

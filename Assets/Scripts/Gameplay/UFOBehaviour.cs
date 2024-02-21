@@ -3,7 +3,6 @@ namespace MyFirstARGame
     using UnityEngine;
     using Photon.Pun;
     using System.Threading;
-    using UnityEditor.Build.Content;
 
     /// <summary>
     /// Controls projectile behaviour. In our case it currently only changes the material of the projectile based on the player that owns it.

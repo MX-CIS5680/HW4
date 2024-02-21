@@ -11,6 +11,7 @@ namespace MyFirstARGame
         public float countDown;
         public float spawnInterval;
         public float spawnRadius;
+        public int spawnNum;
 
         void Start()
         {
@@ -31,7 +32,11 @@ namespace MyFirstARGame
                countDown -= Time.deltaTime;
                if(countDown < 0){
                    countDown = Random.Range(1, 1 + spawnInterval);
-                   SpawnUFO();
+                    for(int i = 0; i < spawnNum; ++i)
+                    {
+                        SpawnUFO();
+                    } 
+                   
                }
             }
         }

@@ -20,10 +20,14 @@ namespace MyFirstARGame
         public GameObject gameOverText;
         public GameObject winText;
 
+        public int winScore;
+        public int loseScore;
+
         public void setScore(int amt){
             if(gameOver)return;
             score = amt;
-            if(score >= 50){
+            if(score >= winScore)
+            {
                 gameOver = youWin = true;
             }
         }
@@ -34,7 +38,8 @@ namespace MyFirstARGame
         public void SetEnemyFled(int amt){
             if(gameOver)return;
             enemyFled = amt;
-            if(enemyFled > 3){
+            if(enemyFled > loseScore)
+            {
                 gameOver = true;
             }
         }
